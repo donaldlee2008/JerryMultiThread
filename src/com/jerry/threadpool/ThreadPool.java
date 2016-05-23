@@ -20,7 +20,10 @@ public class ThreadPool extends ThreadGroup {
 			new WorkThread(i).start();   //创建并启动工作线程,线程池数量是多少就创建多少个工作线程
 		}
 	}
-	
+	/** 工作队列长度，用于任务过多时候好控制，没有编译测试*/
+	public int getworkQueue() {
+		return this.workQueue.size();
+	}
 	/** 向工作队列中加入一个新任务,由工作线程去执行该任务*/
 	public synchronized void execute(Runnable task) {
 		if(isClosed) {
